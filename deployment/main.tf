@@ -127,7 +127,7 @@ resource "aws_lb_listener" "frontend" {
   load_balancer_arn = aws_lb.aboutalex_load_balancer.arn
   port              = "443"
   protocol          = "HTTPS"
-  certificate_arn   = "arn:aws:acm:us-east-1:186932938567:certificate/a5572a06-3a15-44ae-bbc5-88c193fd0447"
+  certificate_arn   = "arn:aws:acm:us-east-1:164669916339:certificate/4e78e3ec-0754-4218-86de-8c467cd46972"
 
   default_action {
     type             = "forward"

@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import { useAuth0 } from "@auth0/auth0-react";
+import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
+import Home from './routes/home';
+import Profile from './routes/profile';
+import Header from './widgets/header';
 import './App.css';
 
-function App() {
+const ProtectedRoute = () => {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
+
+  if (!isAuthenticated) {
+    loginWithRedirect();
+
+    return <>Redirecting to login..</>;
+  }
+
+  return <Outlet />;
+};
+
+const App = () => {
+  const { isLoading } = useAuth0();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    !isLoading && <BrowserRouter>
+      <div className="app-content">
+        <Header />
+
+        <div className="app-content-wrap">
+          <Routes>
+            <Route path="/" element={<Home />} />
+
+            <Route element={<ProtectedRoute />}>
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+          </Routes>
+        </div>
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
