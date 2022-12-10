@@ -21,7 +21,7 @@ COPY --from=build-stage /frontend_source/build/ /usr/share/nginx/html
 
 # copy a static resource "nginx.conf" into the nginx-based container to set up
 # nginx with the configuration that we want
-COPY docker_resources/nginx.conf /etc/nginx/conf.d/default.conf
+#COPY docker_resources/nginx.conf /etc/nginx/conf.d/default.conf
 
 # that's it! now you have a docker image that's ready to host your react
 # frontend with a configured nginx webserver
