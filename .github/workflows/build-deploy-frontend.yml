@@ -45,7 +45,7 @@ jobs:
       - name: Upload Docker image to AWS ECR
         env:
           ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
-          ECR_REPOSITORY: aboutalex
+          ECR_REPOSITORY: frontend_webserver
         run: |
           docker import frontend_webserver_docker_image.tar/frontend_webserver_docker_image.tar frontend_webserver
           docker tag frontend_webserver 164669916339.dkr.ecr.us-east-1.amazonaws.com/aboutalex
