@@ -48,7 +48,7 @@ jobs:
           ECR_REPOSITORY: frontend_webserver
         run: |
           docker import frontend_webserver_docker_image.tar/frontend_webserver_docker_image.tar frontend_webserver
-          docker tag frontend_webserver 164669916339.dkr.ecr.us-east-1.amazonaws.com/aboutalex
+          docker tag frontend_webserver 164669916339.dkr.ecr.us-east-1.amazonaws.com/frontend_webserver
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
         
   
