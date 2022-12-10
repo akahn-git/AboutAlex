@@ -1,5 +1,7 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node
-# Edit at https://www.toptal.com/developers/gitignore?templates=node
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,node
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,node
+
+.vscode/
 
 ### Node ###
 # Logs
@@ -45,9 +47,6 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-
-#gifs
-gifs/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -144,4 +143,29 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
-# End of https://www.toptal.com/developers/gitignore/api/node
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# Support for Project snippet scope
+.vscode/*.code-snippets
+
+# Ignore code-workspaces
+*.code-workspace
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,node

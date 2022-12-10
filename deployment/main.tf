@@ -38,7 +38,7 @@ resource "aws_ecs_task_definition" "aboutalex_frontend_webserver" {
   container_definitions = jsonencode([
     {
       name      = "frontend_webserver"
-      image     = "186932938567.dkr.ecr.us-east-1.amazonaws.com/frontend_webserver"
+      image     = "164669916339.dkr.ecr.us-east-1.amazonaws.com/aboutalex"
       essential = true
       command   = ["nginx", "-g", "daemon off;"]
       portMappings = [
@@ -127,7 +127,7 @@ resource "aws_lb_listener" "frontend" {
   load_balancer_arn = aws_lb.aboutalex_load_balancer.arn
   port              = "443"
   protocol          = "HTTPS"
-  certificate_arn   = "arn:aws:acm:us-east-1:164669916339:certificate/4e78e3ec-0754-4218-86de-8c467cd46972"
+  certificate_arn   = "arn:aws:acm:us-east-1:164669916339:certificate/3bb2ce8e-5e30-4a2e-bc6b-7421e17ac7fd"
 
   default_action {
     type             = "forward"

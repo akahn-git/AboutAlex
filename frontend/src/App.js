@@ -1,8 +1,12 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
-import Home from './routes/home';
+import Projects from './routes/projects';
 import Profile from './routes/profile';
 import Header from './widgets/header';
+import Quake2 from './routes/projects/quake2';
+import Quake4 from './routes/projects/quake4';
+import Twitter from './routes/projects/twitter';
+import Flixster from "./routes/projects/flixster";
 import './App.css';
 
 const ProtectedRoute = () => {
@@ -23,11 +27,19 @@ const App = () => {
   return (
     !isLoading && <BrowserRouter>
       <div className="app-content">
-        <Header />
+        <Header/>
 
         <div className="app-content-wrap">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Projects />} />
+
+            <Route path="/projects/quake2" element={<Quake2 />} />
+
+            <Route path="/projects/quake4" element={<Quake4 />} />
+
+            <Route path="/projects/twitter" element={<Twitter />} />
+
+            <Route path="/projects/flixster" element={<Flixster />} />
 
             <Route element={<ProtectedRoute />}>
               <Route path="/profile" element={<Profile />} />

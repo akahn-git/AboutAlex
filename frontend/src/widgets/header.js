@@ -26,8 +26,9 @@ const Header = () => {
 
   return (
     <div className="app-header">
-      <div>
-        <Link to="/">AboutAlex</Link>
+      
+      <div className="app-header-rhs">
+        <Link to="/">About Alex</Link> <Link to="/">Blog</Link> <Link to="/">Projects</Link> <a target="_blank" href="https://github.com/akahn-git">Github</a>
       </div>
 
       <div className="app-header-rhs">
