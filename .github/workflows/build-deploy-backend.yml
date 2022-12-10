@@ -2,10 +2,8 @@ name: build-backend
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 jobs:
-  build-frontend:
+  build-backend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,7 +16,7 @@ jobs:
           name: backend_webserver_docker_image.tar
           path: backend/backend_webserver_docker_image.tar
 
-  deploy-frontend:
+  deploy-backend:
     if: ${{ startsWith(github.ref, 'refs/heads/main') }}
     needs: build-backend
     runs-on: ubuntu-latest
