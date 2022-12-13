@@ -2,7 +2,8 @@ import quake2 from '../images/Quake2.jpg'
 import quake4 from '../images/Quake4.jpg'
 import twitter from '../images/Twitter.jpg'
 import flixster from '../images/Flixster.jpg'
-import ProjectButton from '../widgets/projectButtons'
+import LikeButton from '../widgets/likeButton'
+import FollowButton from '../widgets/followButton'
 import { Link } from 'react-router-dom';
 
 const Projects = () => {
@@ -18,7 +19,7 @@ const Projects = () => {
         </div>
 
         <div>
-          <ProjectButton/>
+          <LikeButton projectName="quake2"/> <FollowButton projectName="quake2"/>
         </div>
 
         <div>
@@ -30,7 +31,7 @@ const Projects = () => {
         </div>
           
         <div>
-          <ProjectButton/>
+          <LikeButton projectName="quake4"/> <FollowButton/>
         </div>
 
         <div>
@@ -42,7 +43,7 @@ const Projects = () => {
         </div>
 
         <div>
-          <ProjectButton/>
+          <LikeButton projectName="twitter"/> <FollowButton/>
         </div>
 
         <div>
@@ -54,7 +55,7 @@ const Projects = () => {
         </div>
 
         <div>
-          <ProjectButton/>
+          <LikeButton projectName="flixster"/> <FollowButton/>
         </div>
 
         

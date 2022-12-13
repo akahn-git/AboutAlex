@@ -27,6 +27,13 @@
         transform: translateX(0);
       }
     }
+
+    // Style the like count
+    .like-count {
+      display: inline-block;
+      margin-left: 10px;
+      color:rgb(245, 0, 0)
+  }
 }
 
 .follow-button-wrapper {

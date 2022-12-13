@@ -7,6 +7,7 @@ import Quake2 from './routes/projects/quake2';
 import Quake4 from './routes/projects/quake4';
 import Twitter from './routes/projects/twitter';
 import Flixster from "./routes/projects/flixster";
+import Home from "./routes/home"
 import './App.css';
 
 const ProtectedRoute = () => {
@@ -21,7 +22,7 @@ const ProtectedRoute = () => {
   return <Outlet />;
 };
 
-const App = () => {
+const FrontendApp = () => {
   const { isLoading } = useAuth0();
 
   return (
@@ -31,7 +32,11 @@ const App = () => {
 
         <div className="app-content-wrap">
           <Routes>
-            <Route path="/" element={<Projects />} />
+            <Route path="/" element={<Home />} />
+
+            <Route path="/profile" element={<Profile />} />
+
+            <Route path="/projects" element={<Projects />} />
 
             <Route path="/projects/quake2" element={<Quake2 />} />
 
@@ -51,4 +56,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default FrontendApp;

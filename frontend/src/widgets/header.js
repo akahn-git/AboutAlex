@@ -5,15 +5,16 @@ const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <a onClick={() => loginWithRedirect()}>Log in</a>
+    <button onClick={() => loginWithRedirect()}>Log in</button>
   );
 };
+
 
 const LogoutButton = () => {
   const { logout } = useAuth0();
 
   return (
-    <a onClick={() => logout({ returnTo: window.location.origin})}>Log out</a>
+    <button onClick={() => logout({ returnTo: window.location.origin })}>Log out</button>
   );
 };
 
@@ -26,16 +27,17 @@ const Header = () => {
 
   return (
     <div className="app-header">
-      
       <div className="app-header-rhs">
-        <Link to="/">About Alex</Link> <Link to="/">Blog</Link> <Link to="/">Projects</Link> <a target="_blank" href="https://github.com/akahn-git">Github</a>
+        <Link to="/">About Alex</Link>
+        <Link to="/">Blog</Link>
+        <Link to="/Projects">Projects</Link>
+        <a href="https://github.com/akahn-git" rel="noopener noreferrer" target="_blank">Github</a>
       </div>
-
       <div className="app-header-rhs">
-        { isAuthenticated ? <UserActions /> : <LoginButton /> }
+        {isAuthenticated ? <UserActions /> : <LoginButton />}
       </div>
     </div>
   );
-}
+};
 
 export default Header;

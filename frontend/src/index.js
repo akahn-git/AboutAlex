@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import FrontendApp from './FrontendApp';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from "@auth0/auth0-react";
 
@@ -13,7 +13,7 @@ root.render(
       clientId="WlRBVGux86UjtaQQk8jCJLaX0DAOE039"
       redirectUri={window.location.origin}
     >
-      <App />
+      <FrontendApp />
     </Auth0Provider>
   </React.StrictMode>
 );

@@ -1,15 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.0eeef683.css",
-    "main.js": "/static/js/main.0fc4313a.js",
+    "main.css": "/static/css/main.6ec06c93.css",
+    "main.js": "/static/js/main.61b05d40.js",
     "static/js/787.169cfe93.chunk.js": "/static/js/787.169cfe93.chunk.js",
+    "static/media/Quake2.gif": "/static/media/Quake2.8d8da998f6872c2511bb.gif",
+    "static/media/Quake4.gif": "/static/media/Quake4.372c224e90b66bbd010f.gif",
+    "static/media/Flixster2.gif": "/static/media/Flixster2.35017950409eb12cc040.gif",
+    "static/media/twitter2.gif": "/static/media/twitter2.2405bed1b6a45cf96690.gif",
+    "static/media/Flixster.jpg": "/static/media/Flixster.0e6a2f146e31533170be.jpg",
+    "static/media/Twitter.jpg": "/static/media/Twitter.bc488a470d2cd065a303.jpg",
+    "static/media/Quake2.jpg": "/static/media/Quake2.3e01f3452f317bbe05d5.jpg",
+    "static/media/Quake4.jpg": "/static/media/Quake4.fa224a8a7116a74db8ee.jpg",
+    "static/media/Follow.svg": "/static/media/Follow.c80b80fe88bfea6b009d2d40cd87ec29.svg",
     "index.html": "/index.html",
-    "main.0eeef683.css.map": "/static/css/main.0eeef683.css.map",
-    "main.0fc4313a.js.map": "/static/js/main.0fc4313a.js.map",
+    "static/media/Like.svg": "/static/media/Like.01ef4f183e7809daf50335e0b9a8ae5d.svg",
+    "main.6ec06c93.css.map": "/static/css/main.6ec06c93.css.map",
+    "main.61b05d40.js.map": "/static/js/main.61b05d40.js.map",
     "787.169cfe93.chunk.js.map": "/static/js/787.169cfe93.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0eeef683.css",
-    "static/js/main.0fc4313a.js"
+    "static/css/main.6ec06c93.css",
+    "static/js/main.61b05d40.js"
   ]
 }

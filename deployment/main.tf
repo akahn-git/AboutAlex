@@ -38,7 +38,7 @@ resource "aws_ecs_task_definition" "aboutalex_frontend_webserver" {
   container_definitions = jsonencode([
     {
       name      = "frontend_webserver"
-      image     = "164669916339.dkr.ecr.us-east-1.amazonaws.com/aboutalex"
+      image     = "164669916339.dkr.ecr.us-east-1.amazonaws.com/frontend_webserver"
       essential = true
       command   = ["nginx", "-g", "daemon off;"]
       portMappings = [

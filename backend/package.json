@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "build": "node build"
+    "start": "node src/BackendApp.js",
+    "dev": "nodemon src/FrontendApp.js"
   },
   "author": "",
   "license": "ISC",
