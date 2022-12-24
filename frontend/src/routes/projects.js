@@ -5,59 +5,44 @@ import flixster from '../images/Flixster.jpg'
 import LikeButton from '../widgets/likeButton'
 import FollowButton from '../widgets/followButton'
 import { Link } from 'react-router-dom';
+import '../App.css';  // Import the CSS file
 
 const Projects = () => {
     return (
-      <div>
+      // Add the 'projects' class to the container element
+      <div className="projects">  
     
-        <div>
-          <Link to="./projects/quake2">Quake2 Fishing Mod</Link>
+        <div className="project"> 
+          <Link to="/projects/quake2" className="profile-link">Quake2 Fishing Mod</Link>
+          <img src={quake2} alt="quake2" className="project-image" /> 
+          <div>
+            <LikeButton projectId={1} projectName="quake2"/> <FollowButton projectId={1} projectName="quake2"/>
+          </div>
         </div>
 
-        <div>
-          <img src={quake2} alt ="quake2" />
+        <div className="project">
+          <Link to="/projects/quake4" className="profile-link">Quake4 PacMan Mod</Link>
+          <img src={quake4} alt="quake4" className="project-image" />
+          <div>
+            <LikeButton projectId={2} projectName="quake4"/> <FollowButton  projectId={2} projectName="quake4"/>
+          </div>
         </div>
 
-        <div>
-          <LikeButton projectName="quake2"/> <FollowButton projectName="quake2"/>
+        <div className="project">
+          <Link to="/projects/twitter" className="profile-link">Twitter Android App</Link>
+          <img src={twitter} alt="twitter" className="project-image" />
+          <div>
+            <LikeButton projectId={3} projectName="twitter"/> <FollowButton  projectId={3} projectName="twitter"/>
+          </div>
         </div>
 
-        <div>
-          <Link to="./projects/quake4">Quake4 PacMan Mod</Link>
+        <div className="project">
+          <Link to="/projects/flixster" className="profile-link">Flixster Andorid App</Link>
+          <img src={flixster} alt="flixster" className="project-image" />
+          <div>
+            <LikeButton projectId={4} projectName="flixster"/> <FollowButton  projectId={4} projectName="flixster"/>
+          </div>
         </div>
-
-        <div>
-          <img src={quake4} alt ="quake4" class ="left" />
-        </div>
-          
-        <div>
-          <LikeButton projectName="quake4"/> <FollowButton/>
-        </div>
-
-        <div>
-          <Link to="./projects/twitter">Twitter Android App</Link>
-        </div>
-
-        <div>
-          <img src={twitter} alt ="twitter" />
-        </div>
-
-        <div>
-          <LikeButton projectName="twitter"/> <FollowButton/>
-        </div>
-
-        <div>
-          <Link to="./projects/flixster">Flixster Andorid App</Link>
-        </div>
-
-        <div>
-          <img src={flixster} alt ="flixster" />
-        </div>
-
-        <div>
-          <LikeButton projectName="flixster"/> <FollowButton/>
-        </div>
-
         
     </div>
     );

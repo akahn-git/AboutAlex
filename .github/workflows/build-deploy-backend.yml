@@ -1,21 +1,23 @@
 name: build-backend
 on:
   push:
-    branches: [main]
+    branches: [ "main" ]
+  
+
 jobs:
   build-backend:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/setup-buildx-action@v2
-      - name: Create docker image
-        working-directory: ./backend
-        run: DOCKER_BUILDKIT=1 docker build --output type=tar,dest=backend_webserver_docker_image.tar .
-      - uses: actions/upload-artifact@v3
-        with:
-          name: backend_webserver_docker_image.tar
-          path: backend/backend_webserver_docker_image.tar
-
+    - uses: actions/checkout@v3
+    - uses: docker/setup-buildx-action@v2
+    - name: Build the Docker image
+      working-directory: ./backend
+      run: DOCKER_BUILDKIT=1 docker build --output type=tar,dest=backend_server_docker_image.tar .
+    - uses: actions/upload-artifact@v3
+      with:
+        name: backend_server_docker_image.tar
+        path: backend/backend_server_docker_image.tar
+        
   deploy-backend:
     if: ${{ startsWith(github.ref, 'refs/heads/main') }}
     needs: build-backend
@@ -24,10 +26,10 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - name: Download frontend webserver Docker image
+      - name: Download backend server Docker image
         uses: actions/download-artifact@v1
         with:
-          name: backend_webserver_docker_image.tar
+          name: backend_server_docker_image.tar
 
       - name: Configure AWS login
         uses: aws-actions/configure-aws-credentials@v1
@@ -43,8 +45,8 @@ jobs:
       - name: Upload Docker image to AWS ECR
         env:
           ECR_REGISTRY: ${{ steps.ecr-login.outputs.registry }}
-          ECR_REPOSITORY: backend_webserver
+          ECR_REPOSITORY: backend_server
         run: |
-          docker import backend_webserver_docker_image.tar/backend_webserver_docker_image.tar backend_webserver
-          docker tag backend_webserver 186932938567.dkr.ecr.us-east-1.amazonaws.com/backend_webserver
+          docker import backend_server_docker_image.tar/backend_server_docker_image.tar backend_server
+          docker tag backend_server 164669916339.dkr.ecr.us-east-1.amazonaws.com/backend_server
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest

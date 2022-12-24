@@ -1,68 +1,151 @@
 .like-button-wrapper {
-    &::before {
-      content: "";
-      z-index: 1;
-      position: absolute;
-      margin: 0;
-      will-change: background-color;
-      transition: background-color 0.3s, transform 0.3s;
-      background-color: var(white);
-      box-shadow: 0 0 10px var(gray);
-      border-radius: 8px;
-    }
-    
-    &.liked {
-      &::before {
-        background-color: var(black);
-      }
-    }
-    
-    .suffix {
-      opacity: 0;
-      transition: opacity 300ms, transform 300ms;
-      transform: translateX(15px);
-  
-      &.liked {
-        opacity: 1;
-        transform: translateX(0);
-      }
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+  .like-button,
+  .likes-count {
+    color: black;
+  }
+
+  &.liked {
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .like-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    img {
+      width: 24px;
+      height: 24px;
     }
 
-    // Style the like count
-    .like-count {
+    span {
       display: inline-block;
       margin-left: 10px;
-      color:rgb(245, 0, 0)
+      font-size: 14px;
+      transition: transform 0.3s;
+
+      &.liked {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  .suffix {
+    display: inline-block;
+    margin-left: 5px; /* add a small margin between the suffix and the text to prevent the space */
+    opacity: 0;
+    transform: translateX(15px);
+    transition: opacity 300ms, transform 300ms;
+  
+    &.liked {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .likes-count {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 14px;
   }
 }
 
 .follow-button-wrapper {
-  &::before {
-    content: "";
-    z-index: 1;
-    position: absolute;
-    margin: 0;
-    will-change: background-color;
-    transition: background-color 0.3s, transform 0.3s;
-    background-color: var(rgb(245, 0, 0));
-    box-shadow: 0 0 10px var(gray);
-    border-radius: 8px;
+  position: relative;
+  display: flex; /* change the display to flex to make the button take up the full width */
+  justify-content: space-between; /* position the "follow" and "followers count" elements on opposite sides of the button */
+  align-items: center; /* vertically align the "followers count" element with the rest of the button */
+  vertical-align: middle;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0;
+  width: 200px; /* increase the width of the follow button to allow more space for the text and followers count */
+  height: 50px;
+  background-color: transparent;
+  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 25px;
+
+  /* add a subtle box-shadow to the follow button */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+  /* change the color of the text and followers count to black */
+  .follower-button,
+  .followers-count {
+    color: black;
+  }
+
+  /* change the background color of the follow button to a shade of blue when it is followed */
+  &.followed {
+    background-color: rgba(4, 0, 255, 0.1);
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* or any other color */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   }
   
-  &.followed {
-    &::before {
-      background-color: var(rgb(4, 0, 255));
+  /* add some padding to the follow button to make it more clickable */
+  .follower-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    span {
+      display: inline-block; /* change the display to inline-block to make the "Follow" and "ed" suffix elements display inline with each other */
+      margin-left: 10px;
+      font-size: 14px;
+      transition: transform 0.3s;
+
+      &.followed {
+        transform: translateX(5px);
+      }
     }
   }
-    
+
   .suffix {
+    display: inline-block;
     opacity: 0;
-    transition: opacity 300ms, transform 300ms;
     transform: translateX(15px);
+    transition: opacity 300ms, transform 300ms;
   
     &.followed {
       opacity: 1;
       transform: translateX(0);
     }
+  }
+
+  .followers-count {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 14px;
   }
 }

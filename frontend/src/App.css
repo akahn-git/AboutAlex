@@ -1,48 +1,97 @@
-body {
-  --pal-bg: #2b2d42;
-  --pal-mg: #8d99ae;
-  --pal-fg: #d5e0e4;
-
+/*ROOT*/
+:root {
+  --pal-bg: #f2f2f2; /* change the background color to a light gray */
+  --pal-mg: #333333; /* change the medium color to a dark gray */
+  --pal-fg: #333333; /* change the foreground color to a dark gray */
   --content-max-width: 650px;
   --content-margin: 7.5%;
+  --link-color: rgb(255, 255, 255); /* add a new variable for the link color */
+}
 
+body {
   background: var(--pal-bg);
   color: var(--pal-fg);
-
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5;
-  font-size: 1rem;
-  font-weight: 450;
-  opacity: 0.9;
+  font-size: 16px;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
 }
 
 a {
-  color: unset;
+  color: #fff; /* use the link color variable */
   text-underline-offset: 2px;
   cursor: pointer;
   text-decoration: none;
 }
 
 a:hover {
-  color: var(pal-fg);
-  text-decoration: underline;
+  color: #fff; /* set the hover color of links to a lighter gray */
+  text-decoration: underline; /* add an underline to links on hover */
 }
 
+/*HEADER*/
 .app-header {
   display: flex;
   justify-content: space-between;
-  margin: var(--content-margin);
+  width: 100%; /* make the header span the full width of the page */
+  height: 50px; /* set a specific height for the header */
+  position: fixed; /* anchor the header to the top of the page */
+  top: 0; /* position the header at the top of the page */
+  left: 0; /* position the header at the left of the page */
+  right: 0; /* position the header at the right of the page */
+  z-index: 1; /* make the header appear above other elements on the page */
+  box-sizing: border-box; /* include padding and border in the width and height of the header */
+  margin: 0; /* remove the margin around the header */
+  padding: 0 var(--content-margin); /* add padding to the header to maintain the desired distance from the edges of the page */
+  background-color: #333; /* set the background color to dark gray */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* make the box-shadow slightly lighter */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.app-header-a:hover {
+  color: #ccc; /* use a brighter color for the links in the header when hovering */
+  text-decoration: underline; /* add an underline to the links in the header when hovering */
+}
+
+.app-header-a {
+  color: #fff; /* use the link color variable */
+  text-underline-offset: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 2;
 }
 
 .app-header-rhs {
   display: flex;
   align-items: center;
-  color: var(--pal-mg);
 }
 
 .app-header-rhs > a {
   margin: 0 0.75em;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+  z-index: 2;
+}
+
+.app-header-lhs {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* move the name and title to the left side of the header */
+}
+
+.app-header-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff; /* set the color of the name to white */
+}
+
+.app-header-title {
+  font-size: 1.2em;
+  color: gray;
+  margin-left: 0.5em; /* add some space between the name and title */
 }
 
 .app-content {
@@ -54,3 +103,211 @@ a:hover {
   width: 100%;
   padding: 0 var(--content-margin);
 }
+
+.link {
+  color:#ccc; /* use the link color variable */
+  text-underline-offset: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 2;
+}
+
+.link:hover {
+  color: #ccc; /* set the hover color of links to a lighter gray */
+  text-decoration: underline; /* add an underline to links on hover */
+  z-index: 2;
+}
+
+/*PROFILE PAGE*/
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+  font-family: sans-serif;
+}
+
+.profile__avatar {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.profile__name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.profile__email {
+  font-size: 1.2rem;
+  color: grey;
+  margin-bottom: 1rem;
+}
+
+.profile__followed-projects,
+.profile__liked-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile__project {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.profile__project-name {
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+/*PROJECT PAGE*/
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px; /* add some padding to account for the header */
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px; /* add some space between each project */
+}
+
+.project-image {
+  width: 125%; /* adjust the width of the image to your liking */
+}
+
+.profile-link {
+  color: #3498db; /* choose a color that will be visible on a white background */
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.profile-link:hover {
+  color: #000; /* change the color of the link on hover */
+}
+
+/*INDIVIDUAL PROJECT PAGE*/
+.project-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.project-page__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.project-page__title {
+  margin-right: auto;
+}
+
+.project-page__link {
+  color: #333;
+  margin-left: auto;
+}
+
+.project-page__link:hover {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+}
+
+.project-page__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.project-page__gif,
+.project-page__description {
+  width: 50%;
+}
+
+.project-page__gif img {
+  width: 100%;
+}
+
+.project-page__description {
+  padding: 0 20px;
+}
+
+/*HOME PAGE*/
+/* Center the content on the page */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  width: 800px; /* set a fixed width for the container */
+  margin: 0 auto; /* center the container horizontally */
+}
+
+
+/* Style the heading */
+.home-page h1 {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style the image */
+.home-page img {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+/* Style the paragraphs */
+.home-page p {
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 10px; /* add some padding to the paragraphs */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/*BLOG PAGE*/
+.blog-post {
+  padding: 20px; /* add some padding to the post */
+  margin-bottom: 20px; /* add a margin at the bottom to separate it from the next post */
+}
+
+.blog-post-title {
+  font-size: 24px; /* set the font size of the title */
+  font-weight: bold; /* make the title bold */
+  margin-bottom: 10px; /* add a margin at the bottom to separate it from the meta element */
+}
+
+.blog-post-meta {
+  font-size: 14px; /* set the font size of the meta element */
+  color: gray; /* set the text color to gray */
+  margin-bottom: 20px; /* add a margin at the bottom to separate it from the rest of the post */
+}
+
+.blog-post p {
+  font-size: 16px; /* set the font size of the paragraphs */
+  line-height: 1.5; /* set the line height to 1.5 */
+  margin-bottom: 20px; /* add a margin at the bottom to separate the paragraphs */
+}
+
+.blog-post pre {
+  background-color: lightgray; /* set the background color of the code block to lightgray */
+  padding: 10px; /* add some padding to the code block */
+  margin-bottom: 20px; /* add a margin at the bottom to separate it from the rest of the post */
+}
+

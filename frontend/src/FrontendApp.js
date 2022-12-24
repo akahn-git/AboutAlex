@@ -8,6 +8,7 @@ import Quake4 from './routes/projects/quake4';
 import Twitter from './routes/projects/twitter';
 import Flixster from "./routes/projects/flixster";
 import Home from "./routes/home"
+import Blog from "./routes/blog"
 import './App.css';
 
 const ProtectedRoute = () => {
@@ -34,9 +35,9 @@ const FrontendApp = () => {
           <Routes>
             <Route path="/" element={<Home />} />
 
-            <Route path="/profile" element={<Profile />} />
-
             <Route path="/projects" element={<Projects />} />
+
+            <Route path="/blog" element={<Blog />} />
 
             <Route path="/projects/quake2" element={<Quake2 />} />
 
