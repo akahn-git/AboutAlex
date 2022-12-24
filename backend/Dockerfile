@@ -5,7 +5,7 @@ FROM node:14 as build-stage
 WORKDIR /backend_source
 
 # copy the project into the build-stage container at "/backend_source"
-COPY ./backend/ /backend_source
+COPY ./ /backend_source
 
 # run the following commands to install dependencies, build the backend
 # these run *inside* the build-stage container
